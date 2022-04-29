@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 
+'''
+根据用户对文章的评分矩阵R分解得到用户向量矩阵P、文章向量矩阵Q
+'''
 
 def LFM_grad_desc(R, P, Q, max_iter, lamda, K=2, alpha=0.0001):
     '''
