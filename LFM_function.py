@@ -46,7 +46,7 @@ def LFM_grad_desc_row(R, row, P, Q, max_iter, lamda, K=2, alpha=0.0001):
     '''
     对输入矩阵的部分行进行分解
     :param R: 评分矩阵
-    :param row: 要处理的行数
+    :param row: 要处理的行数(list)
     :param P: 用户向量矩阵
     :param Q: 物品向量矩阵
     :param max_iter: 最大迭代次数
@@ -63,7 +63,7 @@ def LFM_grad_desc_row(R, row, P, Q, max_iter, lamda, K=2, alpha=0.0001):
 
     # 开始迭代
     for step in range(max_iter):
-        # 对新增用户u、物品i做遍历,对应的特征向量temp_pu、Qi梯度下降
+        # 对新增用户u、所有物品i做遍历,对应的特征向量temp_pu、Qi梯度下降
         for u in row:
             for i in range(N):
                 # 对于每个大于0的评分,求出评分误差
@@ -86,9 +86,9 @@ def LFM_grad_desc_row(R, row, P, Q, max_iter, lamda, K=2, alpha=0.0001):
 
 def LFM_grad_desc_column(R, column, P, Q, max_iter, lamda, K=2, alpha=0.0001):
     '''
-    对输入矩阵的部分行进行分解
+    对输入矩阵的部分列进行分解
     :param R: 评分矩阵
-    :param column: 要处理的列数
+    :param column: 要处理的列数(list)
     :param P: 用户向量矩阵
     :param Q: 物品向量矩阵
     :param max_iter: 最大迭代次数
